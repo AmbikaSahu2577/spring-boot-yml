@@ -1,0 +1,121 @@
+package com.springboot2.web;
+
+import java.util.Map;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+
+@Component
+@ConfigurationProperties("com.web2")
+public class EmailConfig 
+{
+    private String host;
+    private int port;
+    private String user;
+    private String password;
+    private Set<String> protocols;
+    private Map<String,String> Headers;
+    private Certificate cer;
+	public String getHost() {
+		return host;
+	}
+	public void setHost(String host) {
+		this.host = host;
+	}
+	public int getPort() {
+		return port;
+	}
+	public void setPort(int port) {
+		this.port = port;
+	}
+	public String getUser() {
+		return user;
+	}
+	public void setUser(String user) {
+		this.user = user;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public Set<String> getProtocols() {
+		return protocols;
+	}
+	public void setProtocols(Set<String> protocols) {
+		this.protocols = protocols;
+	}
+	public Map<String, String> getHeaders() {
+		return Headers;
+	}
+	public void setHeaders(Map<String, String> headers) {
+		Headers = headers;
+	}
+	public Certificate getCer() {
+		return cer;
+	}
+	public void setCer(Certificate cer) {
+		this.cer = cer;
+	}
+	@Override
+	public String toString() {
+		return "EmailConfig [host=" + host + ", port=" + port + ", user=" + user + ", password=" + password
+				+ ", protocols=" + protocols + ", Headers=" + Headers + ", cer=" + cer + "]";
+	}
+	public EmailConfig() {
+		super();
+	}
+    
+}
+
+
+public class Certificate {
+	private String provider;
+
+	public String getProvider() {
+		return provider;
+	}
+
+	public void setProvider(String provider) {
+		this.provider = provider;
+	}
+
+	@Override
+	public String toString() {
+		return "Certificate [provider=" + provider + "]";
+	}
+
+	public Certificate() {
+		super();
+	}
+}
+
+
+com:
+  web2:
+    host: localhost:8080
+    port: 8080
+    user: Ambika
+    Password: ambi@123
+    
+    protocols[0]: A
+    protocols[1]: B
+    protocols[2]: C
+    
+    Headers[A]: first
+    Headers[B]: second
+    Headers[C]: third
+    
+    cer:
+      provider: PROVIDER
+    
+    
+        
+        
+           
+
+
